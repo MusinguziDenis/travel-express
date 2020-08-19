@@ -28,7 +28,7 @@ class Account extends StatelessWidget {
         body: Container(
           decoration: BoxDecoration(
               image: DecorationImage(
-                  image: AssetImage('assets/images/bus.jpg'),
+                  image: AssetImage('assets/images/mountain.jpg'),
                   fit: BoxFit.cover)),
           child: TripList(),
         ),

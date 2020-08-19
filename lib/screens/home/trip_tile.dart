@@ -10,61 +10,70 @@ class TripTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
         padding: EdgeInsets.only(top: 8.0),
-        child: Card(
-          color: Colors.blue[100],
-          child: Column(
-            children: [
-              SizedBox(
-                height: 50.0,
-              ),
-              ListTile(
-                leading: Text(
-                  'Account',
-                  textAlign: TextAlign.left,
-                  style: TextStyle(
-                    fontSize: 20.0,
-                    fontWeight: FontWeight.bold,
-                  ),
+        child: Column(
+          children: [
+            SizedBox(
+              height: 50.0,
+            ),
+            ListTile(
+              title: Text(
+                'Account',
+                textAlign: TextAlign.left,
+                style: TextStyle(
+                  fontSize: 20.0,
+                  fontWeight: FontWeight.bold,
                 ),
               ),
-              SizedBox(
-                height: 50.0,
+              leading: CircleAvatar(
+                radius: 25.0,
+                backgroundImage: AssetImage('assets/images/road.jpg'),
               ),
-              ListTile(
-                leading: Text(
-                  ' Name: ${trip.name}',
-                  style: TextStyle(
-                    fontSize: 20.0,
-                    fontWeight: FontWeight.bold,
-                  ),
+              trailing: Icon(Icons.edit),
+              subtitle: Text('Edit profile picture'),
+            ),
+            SizedBox(
+              height: 50.0,
+            ),
+            ListTile(
+              leading: Icon(Icons.person),
+              title: Text(
+                ' Name ',
+                style: TextStyle(
+                  fontSize: 20.0,
+                  fontWeight: FontWeight.bold,
                 ),
               ),
-              SizedBox(
-                height: 50.0,
-              ),
-              ListTile(
-                leading: Text(
-                  'Number: ${trip.number}',
-                  style: TextStyle(
-                    fontSize: 20.0,
-                    fontWeight: FontWeight.bold,
-                  ),
+              subtitle: Text('${trip.name}'),
+            ),
+            SizedBox(
+              height: 50.0,
+            ),
+            ListTile(
+              leading: Icon(Icons.phone),
+              title: Text(
+                'Phone Number',
+                style: TextStyle(
+                  fontSize: 20.0,
+                  fontWeight: FontWeight.bold,
                 ),
               ),
-              SizedBox(
-                height: 50.0,
-              ),
-              ListTile(
-                leading: Text(
-                  'Email: ${trip.email}',
-                  style: TextStyle(
-                    fontSize: 20.0,
-                    fontWeight: FontWeight.bold,
-                  ),
+              subtitle: Text('${trip.number}'),
+            ),
+            SizedBox(
+              height: 50.0,
+            ),
+            ListTile(
+              leading: Icon(Icons.email),
+              title: Text(
+                'Email ',
+                style: TextStyle(
+                  fontSize: 20.0,
+                  fontWeight: FontWeight.bold,
                 ),
               ),
-            ],
-          ),
+              subtitle: Text('${trip.email}'),
+            ),
+          ],
         ));
   }
 }
