@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "199670772129",
+    "firebase_url": "https://travel-express-1b958.firebaseio.com",
+    "project_id": "travel-express-1b958",
+    "storage_bucket": "travel-express-1b958.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:199670772129:android:6036b97fee1aca4c1e9be0",
+        "android_client_info": {
+          "package_name": "com.hunter.travel_express"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "199670772129-94pjfqntjvn1knm2vkfn2vfhc0mv320h.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.hunter.travel_express",
+            "certificate_hash": "39c64985988f1f3b37c8267a7d845152639349c7"
+          }
+        },
+        {
+          "client_id": "199670772129-b9jtrnrqgaokiokhck38kbaoeal3269q.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAAQVRB-2OUWHTdD8EJx6LODz-I2sydWg0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "199670772129-b9jtrnrqgaokiokhck38kbaoeal3269q.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
