@@ -38,8 +38,8 @@ class DatabaseService {
     return UserData(
       uid: uid,
       name: snapshot.data['name'],
-      email: snapshot.data['name'],
-      phone: snapshot.data['name'],
+      email: snapshot.data['email'],
+      phone: snapshot.data['number'],
     );
   }
 
@@ -64,5 +64,24 @@ class DatabaseServices {
       'destination': destination,
       'time': time
     });
+  }
+
+  //journeys lsit from snapshot
+  List<Journeys> _journeyListFromSnapshot(QuerySnapshot snapshot) {
+    return snapshot.documents.map((doc) {
+      return Journeys(
+        day: doc.data['day'] ?? 0,
+        month: doc.data['month'] ?? '',
+        year: doc.data['year'] ?? 0,
+        departure: doc.data['departure'] ?? '',
+        destination: doc.data['destination'] ?? '',
+        time: doc.data['time'],
+      );
+    }).toList();
+  }
+
+  //get journey stream
+  Stream<List<Journeys>> get journeys {
+    return journeyCollection.snapshots().map(_journeyListFromSnapshot);
   }
 }
