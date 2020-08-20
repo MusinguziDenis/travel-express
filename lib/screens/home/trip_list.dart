@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:provider/provider.dart';
 import 'package:travel_express/models/tript.dart';
+import 'package:travel_express/models/user.dart';
 import 'package:travel_express/screens/home/trip_tile.dart';
 
 class TripList extends StatefulWidget {
@@ -12,7 +13,8 @@ class TripList extends StatefulWidget {
 class _TripListState extends State<TripList> {
   @override
   Widget build(BuildContext context) {
-    final trips = Provider.of<List<Tripd>>(context);
+    final user = Provider.of<User>(context);
+    final trips = Provider.of<List<Tripd>>(context) ?? [];
 
     return ListView.builder(
         itemCount: trips.length,

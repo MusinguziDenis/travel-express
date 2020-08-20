@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:travel_express/models/tript.dart';
+import 'package:travel_express/models/user.dart';
 
 class DatabaseService {
   final String uid;
@@ -31,26 +32,37 @@ class DatabaseService {
   Stream<List<Tripd>> get trips {
     return tripCollection.snapshots().map(_tripListFromSnapshot);
   }
+
+  //userdata from snapshot
+  UserData _userDataFromSnapshot(DocumentSnapshot snapshot) {
+    return UserData(
+      uid: uid,
+      name: snapshot.data['name'],
+      email: snapshot.data['name'],
+      phone: snapshot.data['name'],
+    );
+  }
+
+//get user doc stream
+  Stream<UserData> get userData {
+    return tripCollection.document(uid).snapshots().map(_userDataFromSnapshot);
+  }
 }
 
-/*class DatabaseServices {
+class DatabaseServices {
   final String uid;
   DatabaseServices({this.uid});
-  final CollectionReference schedulesCollection =
-      Firestore.instance.collection('schedule');
-
-  Future updateSchedule(
-      String day, String departure, String destination, String time) async {
-    return await schedulesCollection.document(uid).setData({
+  final CollectionReference journeyCollection =
+      Firestore.instance.collection('journey');
+  Future updateJourney(int day, String month, int year, String departure,
+      String destination, String time) async {
+    return await journeyCollection.document(uid).setData({
       'day': day,
+      'month': month,
+      'year': year,
       'departure': departure,
       'destination': destination,
       'time': time
     });
   }
-
-  //get schedules stream
-  Stream<QuerySnapshot> get schedule {
-    return schedulesCollection.snapshots();
-  }
-}*/
+}

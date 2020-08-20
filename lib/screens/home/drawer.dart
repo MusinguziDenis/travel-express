@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:travel_express/models/tript.dart';
 import 'package:travel_express/screens/home/account.dart';
 import 'package:travel_express/screens/home/schedule.dart';
 import 'package:travel_express/screens/home/trips.dart';
 
 class MyDrawer extends StatelessWidget {
+  final Tripd trip;
+  MyDrawer({this.trip});
   @override
   Widget build(BuildContext context) {
     return Drawer(
@@ -12,7 +15,7 @@ class MyDrawer extends StatelessWidget {
         children: [
           UserAccountsDrawerHeader(
             accountName: Text('Musinguzi Denis'),
-            accountEmail: Text('desmusinguzi@gmail.com'),
+            accountEmail: Text('denis@gmail.com'),
             currentAccountPicture: CircleAvatar(
               backgroundImage: AssetImage('assets/images/allianz.jpg'),
             ),

@@ -1,6 +1,7 @@
 //import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:travel_express/models/tript.dart';
+import 'package:travel_express/screens/home/update.dart';
 import 'package:travel_express/services/auth.dart';
 import 'package:travel_express/services/database.dart';
 import 'package:provider/provider.dart';
@@ -10,6 +11,19 @@ import 'package:travel_express/screens/home/trip_list.dart';
 class Account extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    void _showDialogueBox() {
+      showDialog(
+        barrierColor: Colors.white,
+        context: context,
+        builder: (context) {
+          return Container(
+            padding: EdgeInsets.symmetric(vertical: 20.0, horizontal: 60.0),
+            child: UpdateForm(),
+          );
+        },
+      );
+    }
+
     return StreamProvider<List<Tripd>>.value(
       value: DatabaseService().trips,
       child: Scaffold(
@@ -19,7 +33,7 @@ class Account extends StatelessWidget {
           elevation: 0.0,
           actions: [
             FlatButton.icon(
-              onPressed: () {},
+              onPressed: () => _showDialogueBox(),
               icon: Icon(Icons.settings),
               label: Text('Update'),
             )
