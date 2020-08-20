@@ -9,6 +9,8 @@ class DatabaseService {
       Firestore.instance.collection('trips');
   Future updateUserData(String name, String number, String email) async {
     return await tripCollection.document(uid).setData({
+      //links the user and firestore and we use setdata to update the
+      //users data
       'name': name,
       'number': number,
       'email': email,

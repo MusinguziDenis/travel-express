@@ -27,6 +27,16 @@ class _BookState extends State<Book> {
               if (!snapshot.hasData) {
                 return Text('Loading data please wait');
               }
+              var userDocument = snapshot.data.documents[0];
+              return ListView(
+                children: [
+                  Text(userDocument['day']),
+                  Text(userDocument['departure']),
+                  Text(userDocument['destination']),
+                  Text(userDocument['time']),
+                ],
+              );
+
               /* return Column(
                 children: [
                   Text(snapshot.data.documents[0]['day']),
@@ -35,7 +45,7 @@ class _BookState extends State<Book> {
                   Text(snapshot.data.documents[1]['time']),
                 ],
               );*/
-              return DataTable(
+              /*return DataTable(
                   columnSpacing: 25.0,
                   columns: [
                     DataColumn(
@@ -55,7 +65,7 @@ class _BookState extends State<Book> {
                         numeric: false,
                         tooltip: 'This is the time of departure'),
                   ],
-                  rows: null);
+                  rows: null);*/
             },
           )),
     );
