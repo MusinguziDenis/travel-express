@@ -80,8 +80,29 @@ class DatabaseServices {
     }).toList();
   }
 
+  //journeyData from Snapshot
+  JourneyData _journeyDataFromSnapshot(DocumentSnapshot snapshot) {
+    return JourneyData(
+      uid: uid,
+      day: snapshot.data['day'],
+      month: snapshot.data['month'],
+      year: snapshot.data['year'],
+      departure: snapshot.data['departure'],
+      destination: snapshot.data['destination'],
+      time: snapshot.data['time'],
+    );
+  }
+
   //get journey stream
   Stream<List<Journeys>> get journeys {
     return journeyCollection.snapshots().map(_journeyListFromSnapshot);
+  }
+
+  //get user doc stream
+  Stream<JourneyData> get journeyData {
+    return journeyCollection
+        .document(uid)
+        .snapshots()
+        .map(_journeyDataFromSnapshot);
   }
 }
