@@ -20,6 +20,7 @@ class _SignInState extends State<SignIn> {
   String email = '';
   String password = '';
   String error = '';
+  String phone = '';
 
   @override
   Widget build(BuildContext context) {
@@ -101,7 +102,7 @@ class _SignInState extends State<SignIn> {
                         height: 20.0,
                       ),
                       Text(error,
-                          style: TextStyle(color: Colors.red, fontSize: 14.0))
+                          style: TextStyle(color: Colors.red, fontSize: 14.0)),
                     ],
                   )),
             ),
