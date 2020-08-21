@@ -14,13 +14,13 @@ class _TripListState extends State<TripList> {
   @override
   Widget build(BuildContext context) {
     final user = Provider.of<User>(context);
-    final trips = Provider.of<List<Tripd>>(context) ?? [];
+    //final trips = Provider.of<List<Tripd>>(context) ?? [];
 
-    return ListView.builder(
-        itemCount: trips.length,
-        itemBuilder: (context, index) {
-          return TripTile(trip: trips[index]);
-        });
+    //return ListView.builder(
+    //itemCount: trips.length,
+    //itemBuilder: (context, index) {
+    return TripTile(); //(trip: trips[index]);
+    // });
     /* trips.forEach((trip) {
       print(trip.name);
       print(trip.number);

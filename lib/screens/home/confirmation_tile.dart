@@ -1,31 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:travel_express/models/tript.dart';
 import 'package:travel_express/models/user.dart';
-import 'package:travel_express/screens/home/confirmation.dart';
-import 'package:travel_express/screens/home/update_journey.dart';
 import 'package:travel_express/services/database.dart';
 import 'package:travel_express/shared/loading.dart';
 
-class JourneyTile extends StatelessWidget {
-  final Journeys journey;
-  JourneyTile({this.journey});
+class ConfirmationTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final user = Provider.of<User>(context);
-    void _showDialogueBox() {
-      showDialog(
-        barrierColor: Colors.white,
-        context: context,
-        builder: (context) {
-          return Container(
-            padding: EdgeInsets.symmetric(vertical: 20.0, horizontal: 60.0),
-            child: UpdateJourney(),
-          );
-        },
-      );
-    }
-
     return StreamBuilder<JourneyData>(
         stream: DatabaseServices(uid: user.uid).journeyData,
         builder: (context, snapshot) {
@@ -36,9 +18,19 @@ class JourneyTile extends StatelessWidget {
               child: Column(
                 children: [
                   Card(
+                    color: Colors.amber[300],
                     margin: EdgeInsets.fromLTRB(20.0, 6.0, 20.0, 0.0),
                     child: Column(
                       children: [
+                        ListTile(
+                          title: Text(
+                            'Travel Express Ltd',
+                            style: TextStyle(
+                              fontSize: 20.0,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
                         ListTile(
                           title: Text(
                               'Date: ${journeys.day} \t  ${journeys.month}\t  ${journeys.year} '),
@@ -50,35 +42,18 @@ class JourneyTile extends StatelessWidget {
                         ListTile(
                           title: Text('Time: ${journeys.time} '),
                         ),
+                        ListTile(
+                          title: Text('Payment method: Cash'),
+                        ),
+                        ListTile(
+                          title: Text(
+                              'This is your ticket.\nPresent this to the conductor.\nThank you for travelling with us'),
+                        ),
                       ],
                     ),
                   ),
                   SizedBox(
                     height: 20.0,
-                  ),
-                  RaisedButton(
-                    color: Colors.pink[400],
-                    child: Text(
-                      'Book',
-                      style: TextStyle(color: Colors.white),
-                    ),
-                    onPressed: () => _showDialogueBox(),
-                  ),
-                  SizedBox(
-                    height: 20.0,
-                  ),
-                  RaisedButton(
-                    color: Colors.pink[400],
-                    child: Text(
-                      'Confirm',
-                      style: TextStyle(color: Colors.white),
-                    ),
-                    onPressed: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => Confirmation()));
-                    },
                   ),
                 ],
               ),

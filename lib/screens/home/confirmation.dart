@@ -2,17 +2,18 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:travel_express/models/tript.dart';
 import 'package:travel_express/models/user.dart';
+import 'package:travel_express/screens/home/confirmation_list.dart';
 import 'package:travel_express/screens/home/journey_list.dart';
 import 'package:travel_express/screens/home/update_journey.dart';
 import 'package:travel_express/services/database.dart';
 import 'package:provider/provider.dart';
 
-class Book extends StatefulWidget {
+class Confirmation extends StatefulWidget {
   @override
-  _BookState createState() => _BookState();
+  _ConfirmationState createState() => _ConfirmationState();
 }
 
-class _BookState extends State<Book> {
+class _ConfirmationState extends State<Confirmation> {
   @override
   Widget build(BuildContext context) {
     final user = Provider.of<User>(context);
@@ -21,7 +22,7 @@ class _BookState extends State<Book> {
       value: DatabaseServices().journeys,
       child: Scaffold(
           appBar: AppBar(
-            title: Text('Book your trip'),
+            title: Text('Ticket'),
             backgroundColor: Colors.blue[400],
             elevation: 0.0,
           ),
@@ -31,7 +32,7 @@ class _BookState extends State<Book> {
               image: AssetImage('assets/images/road.jpg'),
               fit: BoxFit.cover,
             )),
-            child: JourneyList(),
+            child: ConfirmationList(),
           )),
     );
   }

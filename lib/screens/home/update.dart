@@ -83,7 +83,7 @@ class _UpdateFormState extends State<UpdateForm> {
                                 _currentName ?? userData.name,
                                 _currentPhone ?? userData.phone,
                                 _currentEmail ?? userData.email);
-                            Navigator.of(context);
+                            Navigator.pop(context);
                           }
                         },
                       )
