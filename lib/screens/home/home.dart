@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:travel_express/screens/home/drawer.dart';
-import 'package:travel_express/screens/home/trip_list.dart';
 import 'package:travel_express/services/auth.dart';
 import 'package:google_fonts/google_fonts.dart';
-//import 'package:travel_express/screens/home/drawer.dart';
 
 class Home extends StatelessWidget {
   final AuthService _auth = AuthService();

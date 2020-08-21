@@ -1,11 +1,8 @@
-//import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:travel_express/models/tript.dart';
 import 'package:travel_express/screens/home/update.dart';
-import 'package:travel_express/services/auth.dart';
 import 'package:travel_express/services/database.dart';
 import 'package:provider/provider.dart';
-//import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:travel_express/screens/home/trip_list.dart';
 
 class Account extends StatelessWidget {
