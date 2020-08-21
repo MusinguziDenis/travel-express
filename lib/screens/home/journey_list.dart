@@ -12,7 +12,7 @@ class JourneyList extends StatefulWidget {
 class _JourneyListState extends State<JourneyList> {
   @override
   Widget build(BuildContext context) {
-    final journeys = Provider.of<List<Journeys>>(context);
+    final journeys = Provider.of<List<Journeys>>(context)??[];
     return ListView.builder(
       itemCount: journeys.length,
       itemBuilder: (context, index) {

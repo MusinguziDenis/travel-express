@@ -222,6 +222,19 @@ class _UpdateJourneyState extends State<UpdateJourney> {
                               style: TextStyle(color: Colors.white),
                             ),
                             onPressed: () async {
+                              if (_formKey.currentState.validate()) {
+                                await DatabaseServices(uid: user.uid)
+                                    .updateJourney(
+                                        _currentDay ?? journeys.day,
+                                        _currentMonth ?? journeys.month,
+                                        _currentYear ?? journeys.year,
+                                        _currentDeparture ?? journeys.departure,
+                                        _currentDestination ??
+                                            journeys.destination,
+                                        _currentTime ?? journeys.time);
+                                Navigator.pop(context);
+                              }
+
                               print(_currentDay);
                               print(_currentMonth);
                               print(_currentYear);
