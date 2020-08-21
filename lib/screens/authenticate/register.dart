@@ -101,46 +101,6 @@ class _RegisterState extends State<Register> {
                       ),
                       Text(error,
                           style: TextStyle(color: Colors.red, fontSize: 14.0)),
-                      SizedBox(
-                        height: 20.0,
-                      ),
-                      TextFormField(
-                        decoration: textInputDecoration.copyWith(
-                            hintText: 'Phone Number'),
-                        validator: (value) => value.length < 11
-                            ? 'Enter your number with the country code'
-                            : null,
-                        obscureText: true,
-                        onChanged: (value) {
-                          setState(() => phone = value);
-                        },
-                      ),
-                      SizedBox(
-                        height: 20.0,
-                      ),
-                      RaisedButton(
-                        color: Colors.pink[400],
-                        child: Text(
-                          'Register with phone number',
-                          style: TextStyle(color: Colors.white),
-                        ),
-                        onPressed: () async {
-                          if (_formKey.currentState.validate()) {
-                            setState(() => loading = true);
-                            dynamic result = await _auth
-                                .signInWithEmailAndPassword(email, password);
-                            print('valid');
-                            if (result == null) {
-                              setState(() {
-                                error = 'please supply a valid email';
-                                loading = false;
-                              });
-                            }
-                          }
-                          print(email);
-                          print(password);
-                        },
-                      ),
                     ],
                   )),
             ),

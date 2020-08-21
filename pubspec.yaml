@@ -40,7 +40,13 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   firebase_storage:
-  image_picker:  
+  image_picker:
+  flutter_launcher_icons: ^0.7.3
+
+flutter_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "assets/images/buses.jpg"  
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

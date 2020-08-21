@@ -1,5 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/material.dart';
 import 'package:travel_express/models/user.dart';
+import 'package:travel_express/screens/home/home.dart';
 import 'package:travel_express/services/database.dart';
 
 class AuthService {
@@ -62,8 +64,6 @@ class AuthService {
       return null;
     }
   }
-
-  //signin with email and password
 
   //signout
   Future signOut() async {

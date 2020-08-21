@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:travel_express/models/user.dart';
 import 'package:travel_express/screens/home/account.dart';
+import 'package:travel_express/screens/home/book.dart';
 import 'package:travel_express/screens/home/schedule.dart';
 import 'package:travel_express/screens/home/trips.dart';
 import 'package:travel_express/services/database.dart';
@@ -65,10 +66,13 @@ class _MyDrawerState extends State<MyDrawer> {
                   ),
                   ListTile(
                     leading: Icon(Icons.history),
-                    title: Text('History'),
+                    title: Text('Book'),
                     subtitle: Text('See your last trips'),
                     trailing: Icon(Icons.arrow_forward),
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => Book()));
+                    },
                   ),
                 ],
               ),
