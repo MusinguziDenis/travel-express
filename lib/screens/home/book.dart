@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:travel_express/models/tript.dart';
+import 'package:travel_express/models/user.dart';
 import 'package:travel_express/screens/home/journey_list.dart';
 import 'package:travel_express/screens/home/update_journey.dart';
 import 'package:travel_express/services/database.dart';
@@ -14,6 +15,7 @@ class Book extends StatefulWidget {
 class _BookState extends State<Book> {
   @override
   Widget build(BuildContext context) {
+    final user = Provider.of<User>(context);
     void _showDialogueBox() {
       showDialog(
         barrierColor: Colors.white,

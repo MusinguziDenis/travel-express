@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:travel_express/models/tript.dart';
+//import 'package:travel_express/models/tript.dart';
 import 'package:travel_express/screens/home/account.dart';
 import 'package:travel_express/screens/home/schedule.dart';
 import 'package:travel_express/screens/home/trips.dart';
 
-class MyDrawer extends StatelessWidget {
-  final Tripd trip;
-  MyDrawer({this.trip});
+class MyDrawer extends StatefulWidget {
+  @override
+  _MyDrawerState createState() => _MyDrawerState();
+}
+
+class _MyDrawerState extends State<MyDrawer> {
   @override
   Widget build(BuildContext context) {
     return Drawer(
