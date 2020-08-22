@@ -41,70 +41,73 @@ class _SignInState extends State<SignIn> {
                     label: Text('Register'))
               ],
             ),
-            body: Container(
-              padding: EdgeInsets.symmetric(vertical: 20.0, horizontal: 20.0),
-              child: Form(
-                  key: _formKey,
-                  child: Column(
-                    children: [
-                      SizedBox(
-                        height: 20.0,
-                      ),
-                      TextFormField(
-                        decoration:
-                            textInputDecoration.copyWith(hintText: 'Email'),
-                        validator: (value) =>
-                            value.isEmpty ? 'Enter an email' : null,
-                        onChanged: (value) {
-                          setState(() => email = value);
-                        },
-                      ),
-                      SizedBox(
-                        height: 20.0,
-                      ),
-                      TextFormField(
-                        decoration:
-                            textInputDecoration.copyWith(hintText: 'Password'),
-                        validator: (value) =>
-                            value.length < 6 ? 'Enter a 6+ chars long' : null,
-                        obscureText: true,
-                        onChanged: (value) {
-                          setState(() => password = value);
-                        },
-                      ),
-                      SizedBox(
-                        height: 20.0,
-                      ),
-                      RaisedButton(
-                        color: Colors.pink[400],
-                        child: Text(
-                          'Sign in',
-                          style: TextStyle(color: Colors.white),
+            body: SingleChildScrollView(
+              child: Container(
+                padding: EdgeInsets.symmetric(vertical: 20.0, horizontal: 20.0),
+                child: Form(
+                    key: _formKey,
+                    child: Column(
+                      children: [
+                        SizedBox(
+                          height: 20.0,
                         ),
-                        onPressed: () async {
-                          if (_formKey.currentState.validate()) {
-                            setState(() => loading = true);
-                            dynamic result = await _auth
-                                .signInWithEmailAndPassword(email, password);
-                            print('valid');
-                            if (result == null) {
-                              setState(() {
-                                error = 'please supply a valid email';
-                                loading = false;
-                              });
+                        TextFormField(
+                          decoration:
+                              textInputDecoration.copyWith(hintText: 'Email'),
+                          validator: (value) =>
+                              value.isEmpty ? 'Enter an email' : null,
+                          onChanged: (value) {
+                            setState(() => email = value);
+                          },
+                        ),
+                        SizedBox(
+                          height: 20.0,
+                        ),
+                        TextFormField(
+                          decoration: textInputDecoration.copyWith(
+                              hintText: 'Password'),
+                          validator: (value) =>
+                              value.length < 6 ? 'Enter a 6+ chars long' : null,
+                          obscureText: true,
+                          onChanged: (value) {
+                            setState(() => password = value);
+                          },
+                        ),
+                        SizedBox(
+                          height: 20.0,
+                        ),
+                        RaisedButton(
+                          color: Colors.pink[400],
+                          child: Text(
+                            'Sign in',
+                            style: TextStyle(color: Colors.white),
+                          ),
+                          onPressed: () async {
+                            if (_formKey.currentState.validate()) {
+                              setState(() => loading = true);
+                              dynamic result = await _auth
+                                  .signInWithEmailAndPassword(email, password);
+                              print('valid');
+                              if (result == null) {
+                                setState(() {
+                                  error = 'please supply a valid email';
+                                  loading = false;
+                                });
+                              }
                             }
-                          }
-                          print(email);
-                          print(password);
-                        },
-                      ),
-                      SizedBox(
-                        height: 20.0,
-                      ),
-                      Text(error,
-                          style: TextStyle(color: Colors.red, fontSize: 14.0)),
-                    ],
-                  )),
+                            print(email);
+                            print(password);
+                          },
+                        ),
+                        SizedBox(
+                          height: 20.0,
+                        ),
+                        Text(error,
+                            style:
+                                TextStyle(color: Colors.red, fontSize: 14.0)),
+                      ],
+                    )),
+              ),
             ),
           );
   }
