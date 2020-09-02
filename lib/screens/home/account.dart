@@ -10,7 +10,7 @@ class Account extends StatelessWidget {
   Widget build(BuildContext context) {
     void _showDialogueBox() {
       showDialog(
-        barrierColor: Colors.white,
+        //barrierColor: Colors.white,
         context: context,
         builder: (context) {
           return Container(
